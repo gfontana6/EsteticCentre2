@@ -24,12 +24,15 @@ class Db_query {
                                     object : ValueEventListener {
                                         override fun onDataChange(dataSnapshot: DataSnapshot) {
                                             if (dataSnapshot.exists()) {
-                                                val passwordcheck: String = dataSnapshot.getValue(String.class)
-                                                if(decode(dataSnapshot.getValue(String.class)) == pass)
-                                                check = "Authenticate"
-
-                                            } else {
-                                                Toast.makeText(context, "Password errata", Toast.LENGTH_SHORT).show()
+                                                val passwordcheck: String = deconde(dataSnapshot.getValue(String.class))
+                                                if(passwordcheck == pass){
+                                                    check = "Authenticate"
+                                                }
+                                                else {
+                                                      Toast.makeText(context, "Password errata", Toast.LENGTH_SHORT).show()
+                                                }
+                                            else{
+                                                 Toast.makeText(context, "Password errata", Toast.LENGTH_SHORT).show()
                                             }
                                         }
 
