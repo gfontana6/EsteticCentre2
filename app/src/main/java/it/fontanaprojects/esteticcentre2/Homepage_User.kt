@@ -17,7 +17,10 @@ class Homepage_User: AppCompatActivity() {
         supportActionBar?.hide()
 
         val admin = intent.getStringExtra("name")
-        textView.text = "Salve " + admin
+        nameAdmin.text = "Salve " + admin
+
+
+
 
 
         logoutText.setOnClickListener{

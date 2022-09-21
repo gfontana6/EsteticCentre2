@@ -3,26 +3,36 @@ package it.fontanaprojects.esteticcentre2
 import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
+import android.os.StrictMode
+import android.os.StrictMode.ThreadPolicy
 import android.text.method.PasswordTransformationMethod
-import android.util.Log
+import android.util.Base64
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_main.*
-
+import javax.crypto.Cipher
+import javax.crypto.SecretKeyFactory
+import javax.crypto.spec.IvParameterSpec
+import javax.crypto.spec.PBEKeySpec
+import javax.crypto.spec.SecretKeySpec
 
 class MainActivity : AppCompatActivity() {
+
+    private val secretKey = "tK5UTui+DPh8lIlBxya5XVsmeDCoUl6vHhdIESMB6sQ="
+    private val salt = "QWlGNHNhMTJTQWZ2bGhpV3U=" // base64 decode => AiF4sa12SAfvlhiWu
+    private val iv = "bVQzNFNhRkQ1Njc4UUFaWA==" // base64 decode => mT34SaFD5678QAZX
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         supportActionBar?.hide()
 
-        val mRootRef: DatabaseReference = FirebaseDatabase.getInstance().reference
-        val db = Db_query()
+        val policy = ThreadPolicy.Builder().permitAll().build()
+        StrictMode.setThreadPolicy(policy)
+
+        val connection = Connessione().connetti()
+        val db = Db_query(connection)
 
         loginText.setTypeface(null, Typeface.BOLD_ITALIC)
         var checkBoxChecked = false
@@ -37,13 +47,16 @@ class MainActivity : AppCompatActivity() {
             }
         }
         btn_login.setOnClickListener{
-            val Credenziali = db.CheckLogin(this, username.text.toString(), encode(password.text.toString()))
+            println(encrypt(password.text.toString()))
+            val Credenziali = db.checkLogin(username.text.toString(), encrypt(password.text.toString().trim())?.trim())
             if(Credenziali == "Authenticate"){
                 val intent = Intent(this, Homepage_User::class.java)
                 intent.putExtra("name", username.text.toString())
                 startActivity(intent)
             }
-
+            else{
+                Toast.makeText(this, Credenziali, Toast.LENGTH_LONG).show()
+            }
         }
     }
 
@@ -51,75 +64,47 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, "Non puoi tornare indietro dalla schermata di Login per motivi di sicurezza", Toast.LENGTH_SHORT).show()
     }
 
+    fun encrypt(strToEncrypt: String) :  String?
+    {
+        try
+        {
+            val ivParameterSpec = IvParameterSpec(Base64.decode(iv, Base64.DEFAULT))
 
-    fun encode(s: String): String {
-        // create a string to add in the initial
-        // binary code for extra security
-        val ini = "11111111"
-        var cu = 0
+            val factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1")
+            val spec =  PBEKeySpec(secretKey.toCharArray(), Base64.decode(salt, Base64.DEFAULT), 10000, 256)
+            val tmp = factory.generateSecret(spec)
+            val secretKey =  SecretKeySpec(tmp.encoded, "AES")
 
-        // create an array
-        val arr = IntArray(11111111)
-
-        // iterate through the string
-        for (i in 0 until s.length) {
-            // put the ascii value of
-            // each character in the array
-            arr[i] = s[i].code
-            cu++
+            val cipher = Cipher.getInstance("AES/CBC/PKCS7Padding")
+            cipher.init(Cipher.ENCRYPT_MODE, secretKey, ivParameterSpec)
+            return Base64.encodeToString(cipher.doFinal(strToEncrypt.toByteArray(Charsets.UTF_8)), Base64.DEFAULT)
         }
-        var res = ""
-
-        // create another array
-        val bin = IntArray(111)
-        var idx = 0
-
-        // run a loop of the size of string
-        for (i1 in 0 until cu) {
-
-            // get the ascii value at position
-            // i1 from the first array
-            var temp = arr[i1]
-
-            // run the second nested loop of same size
-            // and set 0 value in the second array
-            for (j in 0 until cu) bin[j] = 0
-            idx = 0
-
-            // run a while for temp > 0
-            while (temp > 0) {
-                // store the temp module
-                // of 2 in the 2nd array
-                bin[idx++] = temp % 2
-                temp = temp / 2
-            }
-            var dig = ""
-            var temps: String
-
-            // run a loop of size 7
-            for (j in 0..6) {
-
-                // convert the integer to string
-                temps = Integer.toString(bin[j])
-
-                // add the string using
-                // concatenation function
-                dig = dig + temps
-            }
-            var revs = ""
-
-            // reverse the string
-            for (j in dig.length - 1 downTo 0) {
-                val ca = dig[j]
-                revs = revs + ca.toString()
-            }
-            res = res + revs
+        catch (e: Exception)
+        {
+            println("Error while encrypting: $e")
         }
-        // add the extra string to the binary code
-        res = ini + res
+        return null
+    }
 
-        // return the encrypted code
-        return res
+    fun decrypt(strToDecrypt : String) : String? {
+        try
+        {
+
+            val ivParameterSpec =  IvParameterSpec(Base64.decode(iv, Base64.DEFAULT))
+
+            val factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1")
+            val spec =  PBEKeySpec(secretKey.toCharArray(), Base64.decode(salt, Base64.DEFAULT), 10000, 256)
+            val tmp = factory.generateSecret(spec);
+            val secretKey =  SecretKeySpec(tmp.encoded, "AES")
+
+            val cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
+            cipher.init(Cipher.DECRYPT_MODE, secretKey, ivParameterSpec);
+            return  String(cipher.doFinal(Base64.decode(strToDecrypt, Base64.DEFAULT)))
+        }
+        catch (e : Exception) {
+            println("Error while decrypting: $e");
+        }
+        return null
     }
 
 }
