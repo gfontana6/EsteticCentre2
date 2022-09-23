@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:padding="80dp"
+    android:padding="50dp"
     android:background = "@color/ScritteTitolo">
 
     <LinearLayout
@@ -23,48 +22,64 @@
             android:text="LOGIN"
             android:layout_marginBottom = "50dp"
             android:textColor= "@color/ScritteTitolo"
-            android:textSize = "12sp"
+            android:textSize = "40sp"
             android:gravity ="center"/>
 
         <EditText
             android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:ems="10"
-            android:textSize = "12sp"
-            android:layout_marginBottom = "20dp"
-            android:inputType="textPersonName"
             android:gravity="center"
-            android:hint="Username" />
+            android:hint="Username"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:textColorHint="@android:color/darker_gray"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:ems="10"
-            android:textSize = "12sp"
-            android:layout_marginBottom = "5dp"
-            android:inputType="textPassword"
             android:gravity="center"
-            android:hint="Password" />
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:textColorHint="@android:color/darker_gray"
+            android:textSize="20sp" />
 
         <CheckBox
             android:id="@+id/checkBoxLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom = "40dp"
+            android:layout_marginBottom = "5dp"
             android:layout_gravity="center"
+            android:textColor="@android:color/black"
             android:text="Mostra Password" />
+
+        <CheckBox
+            android:id="@+id/autoLoginCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="40dp"
+            android:text="Login Automatico"
+            android:textColor="@android:color/black" />
 
         <Button
             android:id="@+id/btn_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom = "50dp"
+            android:layout_marginBottom="50dp"
+            android:textSize="20sp"
             android:background="@color/ScritteTitolo"
             android:backgroundTint="@color/ScritteTitolo"
-            android:text="Accedi" />
+            android:text="Accedi"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
