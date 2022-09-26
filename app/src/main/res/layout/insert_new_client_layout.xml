@@ -6,202 +6,213 @@
     android:layout_height="wrap_content"
     android:padding="15dp">
 
-
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/titloschedaKeenwell"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:gravity="center"
-            android:text="SCHEDA CLIENTE KEENWELL"
-            android:textColor="@color/ScritteTitolo"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/data"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Data"
-            android:focusable="false"
-            android:inputType="datetime"
-            android:minHeight="48dp" />
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:paddingBottom="30dp">
 
-            <EditText
-                android:id="@+id/cognome"
+            <TextView
+                android:id="@+id/titoloschedainformato"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="Cognome"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:text="DATI PERSONALI"
+                android:textColor="@color/ScritteTitolo"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:hint="Data"
+                android:inputType="datetime"
+                android:minHeight="48dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/cognome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Cognome"
+                    android:inputType="text"
+                    android:minHeight="48dp" />
+
+                <EditText
+                    android:id="@+id/nome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Nome"
+                    android:inputType="text"
+                    android:minHeight="48dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/via"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Via"
+                    android:inputType="text"
+                    android:minHeight="48dp" />
+
+                <EditText
+                    android:id="@+id/cap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Cap"
+                    android:inputType="number"
+                    android:minHeight="48dp" />
+
+                <EditText
+                    android:id="@+id/citta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Citt\à"
+                    android:inputType="text"
+                    android:minHeight="48dp" />
+
+                <EditText
+                    android:id="@+id/provincia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="|.....|"
+                    android:inputType="text"
+                    android:minHeight="48dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/tel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Tel"
+                    android:inputType="number"
+                    android:minHeight="48dp" />
+
+                <EditText
+                    android:id="@+id/e_mail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="E-mail"
+                    android:inputType="textEmailAddress"
+                    android:minHeight="48dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/nato_a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Nato/a"
+                    android:inputType="text"
+                    android:minHeight="48dp" />
+
+                <EditText
+                    android:id="@+id/il"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:hint="il"
+                    android:inputType="datetime"
+                    android:minHeight="48dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/eta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Et\à"
+                    android:inputType="number"
+                    android:minHeight="48dp" />
+
+                <EditText
+                    android:id="@+id/professione"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Professione"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/motivo_comunicazione"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Motivo della comunicazione"
                 android:inputType="text"
                 android:minHeight="48dp" />
 
-            <EditText
-                android:id="@+id/nome"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:minHeight="48dp"
-                android:inputType="text"
-                android:hint="Nome" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/via"
+            <Button
+                android:id="@+id/btn_insertNewClient"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="text"
-                android:minHeight="48dp"
-                android:hint="Via" />
-
-            <EditText
-                android:id="@+id/cap"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="number"
-                android:minHeight="48dp"
-                android:hint="Cap" />
-
-            <EditText
-                android:id="@+id/citta"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="text"
-                android:minHeight="48dp"
-                android:hint="Citt\à" />
-
-            <EditText
-                android:id="@+id/provincia"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.5"
-                android:ems="10"
-                android:gravity="center"
-                android:inputType="text"
-                android:minHeight="48dp"
-                android:hint="|.....|" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/tel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="number"
-                android:minHeight="48dp"
-                android:hint="Tel" />
-
-            <EditText
-                android:id="@+id/e_mail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textEmailAddress"
-                android:minHeight="48dp"
-                android:hint="E-mail" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/nato_a"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:minHeight="48dp"
-                android:inputType="text"
-                android:hint="Nato/a" />
-
-            <EditText
-                android:id="@+id/il"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:focusable="false"
-                android:minHeight="48dp"
-                android:inputType="datetime"
-                android:hint="il" />
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@color/ScritteTitolo"
+                android:text="Inserisci"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/ScritteTitolo" />
 
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/eta"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:minHeight="48dp"
-                android:inputType="number"
-                android:hint="Et\à" />
-
-            <EditText
-                android:id="@+id/professione"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:minHeight="48dp"
-                android:inputType="textPersonName"
-                android:hint="Professione" />
-        </LinearLayout>
-
-        <EditText
-            android:id="@+id/motivo_comunicazione"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:minHeight="48dp"
-            android:inputType="text"
-            android:hint="Motivo della comunicazione" />
-
-        <Button
-            android:id="@+id/btn_insertNewClient"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:background="@color/ScritteTitolo"
-            android:text="Inserisci"
-            android:textColor="@color/white"
-            app:backgroundTint="@color/ScritteTitolo" />
-
-    </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

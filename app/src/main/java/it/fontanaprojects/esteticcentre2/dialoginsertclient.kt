@@ -13,12 +13,13 @@ import kotlinx.android.synthetic.main.insert_new_client_layout.*
 import java.util.*
 
 
-class dialoginsertclient(context: Context) : Dialog(context) {
+class dialoginsertclient(context: Context, id_user: String) : Dialog(context) {
 
     val myCalendar: Calendar = Calendar.getInstance()
     private val day :Int = myCalendar.get(Calendar.DAY_OF_MONTH)
     private val month:Int = myCalendar.get(Calendar.MONTH)
     private val year :Int = myCalendar.get(Calendar.YEAR)
+    private val id_user = id_user
 
 
     init {
@@ -61,7 +62,7 @@ class dialoginsertclient(context: Context) : Dialog(context) {
             val professione = professione.text.toString()
             val motivo = motivo_comunicazione.text.toString()
 
-            val resultInsert: Boolean  = db.inserNewClient(data.text.toString(), cognome, nome, via, cap, citta, provincia, tel, e_mail, nato_a, il.text.toString(), eta, professione, motivo)
+            val resultInsert: Boolean  = db.inserNewClient(data.text.toString(), cognome, nome, via, cap, citta, provincia, tel, e_mail, nato_a, il.text.toString(), eta, professione, motivo, id_user)
             if(resultInsert){
                 Toast.makeText(context, "Inserimento avvenuto con successo", Toast.LENGTH_SHORT).show()
             }

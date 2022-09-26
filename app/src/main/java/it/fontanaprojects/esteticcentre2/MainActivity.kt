@@ -1,6 +1,5 @@
 package it.fontanaprojects.esteticcentre2
 
-import android.content.Context
 import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
@@ -48,16 +47,23 @@ class MainActivity : AppCompatActivity() {
         if(!(letDirectory.exists())){
             file.createNewFile()
         }
-        FileInputStream(file).bufferedReader().use { readed = it.readText() }
-        println(readed)
+        readed = FileInputStream(file).bufferedReader().use { it.readText() }
 
-        if(readed != "" && readed == null){
-            val oldAutologin = db.AutoLogin(false, null, readed.trim(), null)
-            if(oldAutologin == true){
-                val intent = Intent(this, Homepage_User::class.java)
-                intent.putExtra("name", readed.trim())
-                startActivity(intent)
-            }
+        var id_user = ""
+        var readedText = ""
+        if(readed.contains(";")){
+            val readedsplit = readed.split(";")
+            id_user = readedsplit[1]
+            readedText = readedsplit[0]
+        }
+
+        val oldAutologin = db.AutoLogin(false, null, id_user)
+        println(oldAutologin)
+        if(oldAutologin == true) {
+            val intent = Intent(this, Homepage_User::class.java)
+            intent.putExtra("name", readedText.trim())
+            intent.putExtra("id_user", id_user.trim())
+            startActivity(intent)
         }
 
         var checkBoxChecked = false
@@ -76,10 +82,13 @@ class MainActivity : AppCompatActivity() {
             autoLoginCheckText = !autoLoginCheckText
         }
 
+        toSignUp.setOnClickListener {
+            startActivity(Intent(this, SignUp::class.java))
+        }
         btn_login.setOnClickListener{
             println(encrypt(password.text.toString()))
             val Credenziali = db.checkLogin(username.text.toString(), encrypt(password.text.toString().trim())?.trim())
-            if(Credenziali == "Authenticate"){
+            if(Credenziali.split(";")[0] == "Authenticate"){
                 val letDirectory = File(this.filesDir, "textUsername")
                 letDirectory.createNewFile()
                 letDirectory.mkdirs()
@@ -93,19 +102,19 @@ class MainActivity : AppCompatActivity() {
                     letDirectory.mkdirs()
                     val file = File(letDirectory, "username.txt")
                     file.createNewFile()
-                    file.appendText(username.text.toString())
+                    file.appendText(username.text.toString() + ";" + Credenziali.split(";")[1])
                 }
                 catch (e: Exception) {
                     e.printStackTrace()
                 }
                     if(autoLoginCheckText==true){
-                        val auto = db.AutoLogin(true, "true", username.text.toString(), encrypt(password.text.toString().trim())!!.trim())
+                        val auto = db.AutoLogin(true, "true", id_user)
                         if(auto == false){
                             println("l'update non è andato a buon fine")
                         }
                     }
                     else{
-                        val auto = db.AutoLogin(true, "false", username.text.toString(), encrypt(password.text.toString().trim())!!.trim())
+                        val auto = db.AutoLogin(true, "false", id_user)
                         if(auto == false){
                             println("l'update non è andato a buon fine")
                         }
@@ -113,6 +122,7 @@ class MainActivity : AppCompatActivity() {
 
                 val intent = Intent(this, Homepage_User::class.java)
                 intent.putExtra("name", username.text.toString())
+                intent.putExtra("id_user", Credenziali.split(";")[1])
                 startActivity(intent)
             }
             else{

@@ -52,53 +52,6 @@
                 android:text="AGGIUNGI SCHEDA TECNICA"
                 app:backgroundTint="@color/ScritteTitolo" />
 
-            <TextView
-                android:id="@+id/elencoPerformanceText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:text="SCHEDE TECNICHE"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:textSize="25sp"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="4dp"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/nameSearchPerformance"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="10"
-                    android:ems="10"
-                    android:hint="Trattamento"
-                    android:textSize="18sp"
-                    android:inputType="textPersonName"
-                    android:minHeight="48dp" />
-
-                <Button
-                    android:id="@+id/btn_search_performance"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/ScritteTitolo"
-                    android:backgroundTint="@color/ScritteTitolo"
-                    android:text="Cerca"
-                    android:textColor="@color/white"
-                    android:layout_marginStart="5dp"
-                    android:textSize="13sp"
-                    app:backgroundTint="@color/ScritteTitolo" />
-            </LinearLayout>
-
-            <TableLayout
-                android:id="@+id/TablePerformance"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            </TableLayout>
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

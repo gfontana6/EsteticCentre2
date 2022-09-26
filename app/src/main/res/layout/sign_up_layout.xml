@@ -16,10 +16,10 @@
         android:background = "#FFFFFF">
 
         <TextView
-            android:id="@+id/loginText"
+            android:id="@+id/signUpText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="LOGIN"
+            android:text="REGISTRAZIONE"
             android:layout_marginBottom = "50dp"
             android:textColor= "@color/ScritteTitolo"
             android:textSize = "40sp"
@@ -52,7 +52,7 @@
             android:textSize="20sp" />
 
         <CheckBox
-            android:id="@+id/checkBoxLogin"
+            android:id="@+id/checkBoxSignUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom = "5dp"
@@ -60,17 +60,8 @@
             android:textColor="@android:color/black"
             android:text="Mostra Password" />
 
-        <CheckBox
-            android:id="@+id/autoLoginCheck"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="40dp"
-            android:text="Login Automatico"
-            android:textColor="@android:color/black" />
-
         <Button
-            android:id="@+id/btn_login"
+            android:id="@+id/btn_SignUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -78,15 +69,15 @@
             android:layout_marginBottom="10dp"
             android:background="@color/ScritteTitolo"
             android:backgroundTint="@color/ScritteTitolo"
-            android:text="Accedi"
+            android:text="Registrati"
             android:textColor="@color/white" />
 
         <TextView
-            android:id="@+id/toSignUp"
+            android:id="@+id/toLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/new_admin"
+            android:text="@string/to_login_text"
             android:textColor="@color/blue_link"
             android:textSize="15sp" />
 

@@ -23,13 +23,13 @@ class ChoosePerformance(context: Context, id_client: String?) : Dialog(context) 
 
         viso_corpo.setOnClickListener {
             choose = "viso_corpo"
-            val dialog : Dialog = DialogPerformance(choose, context, id_client)
+            val dialog : Dialog = choseScheda(choose, context, id_client)
             dialog.show()
         }
 
         mani_piedi.setOnClickListener {
             choose = "mani_piedi"
-            val dialog : Dialog = DialogPerformance(choose, context, id_client)
+            val dialog : Dialog = choseScheda(choose, context, id_client)
             dialog.show()
         }
     }

@@ -16,6 +16,7 @@ class Homepage_User: AppCompatActivity() {
 
     private val db = Db_query()
     private var admin: String? = null
+    private var id_user: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +25,8 @@ class Homepage_User: AppCompatActivity() {
         supportActionBar?.hide()
 
         admin = intent.getStringExtra("name")
+        id_user = intent.getStringExtra("id_user")
+
         nameAdmin.text = "Salve " + admin
 
         TableClients.background = ResourcesCompat.getDrawable(resources, R.drawable.border, null)
@@ -36,7 +39,7 @@ class Homepage_User: AppCompatActivity() {
                 showAllClients()
             }
             else {
-                val research = db.searchClient(true, nameSearchclient.text.toString())
+                val research = db.searchClient(true, nameSearchclient.text.toString(), id_user!!)
                 if (research == null) {
                     Toast.makeText(this, "Cliente desiderato non trovato", Toast.LENGTH_SHORT)
                         .show()
@@ -60,6 +63,7 @@ class Homepage_User: AppCompatActivity() {
                         val intent = Intent(this, ManageClient::class.java)
                         intent.putExtra("nameClientIntent", nameFromTextView)
                         intent.putExtra("id_cliente", namesClientSplitted[0])
+                        intent.putExtra("id_user", id_user)
                         intent.putExtra("name", admin)
                         startActivity(intent)
 
@@ -72,11 +76,12 @@ class Homepage_User: AppCompatActivity() {
         }
 
         logoutText.setOnClickListener{
+            db.AutoLogin(true, "false", id_user!!)
             startActivity(Intent(this, MainActivity::class.java))
         }
 
         addClient.setOnClickListener{
-            val dialoginsert : Dialog = dialoginsertclient(this)
+            val dialoginsert : Dialog = dialoginsertclient(this, id_user!!)
             dialoginsert.show()
         }
 
@@ -87,7 +92,8 @@ class Homepage_User: AppCompatActivity() {
     }
 
     fun showAllClients(){
-        val namesClient = db.searchClient(false, null)
+        val namesClient = db.searchClient(false, null, id_user!!)
+
         if(namesClient != null){
             var i = 0
             while(i < namesClient.size){
@@ -107,6 +113,7 @@ class Homepage_User: AppCompatActivity() {
                     val intent = Intent(this, ManageClient::class.java)
                     intent.putExtra("nameClientIntent", nameClientResultSplitted[1])
                     intent.putExtra("id_cliente", namesClientSplitted[0])
+                    intent.putExtra("id_user", id_user)
                     intent.putExtra("name", admin)
                     startActivity(intent)
 
@@ -127,7 +134,6 @@ class Homepage_User: AppCompatActivity() {
             textView.setTypeface(null, Typeface.BOLD_ITALIC)
             textView.setTextColor(ContextCompat.getColor(this, R.color.black))
             TableClients.addView(textView)
-
         }
     }
 

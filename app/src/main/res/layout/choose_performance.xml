@@ -36,19 +36,21 @@
                 android:id="@+id/viso_corpo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="17sp"
                 android:layout_margin="10dp"
-                android:text="VISO/COPRO" />
+                android:layout_weight="1"
+                android:text="VISO/COPRO"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
 
             <Button
                 android:id="@+id/mani_piedi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="17sp"
                 android:layout_margin="10dp"
-                android:text="MANI/PIEDI" />
+                android:layout_weight="1"
+                android:text="MANI/PIEDI"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
         </LinearLayout>
     </LinearLayout>
 

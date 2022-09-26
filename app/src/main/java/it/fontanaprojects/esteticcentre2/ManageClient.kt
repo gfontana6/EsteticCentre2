@@ -15,12 +15,11 @@ class ManageClient : AppCompatActivity(){
         supportActionBar?.hide()
 
         val admin = intent.getStringExtra("name")
-
         val id_client = intent.getStringExtra("id_cliente")
+        val id_user = intent.getStringExtra("id_user")
+        val nameClient = intent.getStringExtra("nameClientIntent")
 
         val db = Db_query()
-
-        val nameClient = intent.getStringExtra("nameClientIntent")
 
         nameClientManage.text = "Gestisci: $nameClient"
 
@@ -35,6 +34,7 @@ class ManageClient : AppCompatActivity(){
 
             val intent = Intent(this, Homepage_User::class.java)
             intent.putExtra("name", admin)
+            intent.putExtra("id_user", id_user)
             startActivity(intent)
 
         }
