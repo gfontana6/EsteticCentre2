@@ -2,6 +2,7 @@ package it.fontanaprojects.esteticcentre2
 
 import android.app.Dialog
 import android.content.Context
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.ViewGroup
 import android.view.Window
@@ -36,6 +37,123 @@ class Analisi_mani_piedi(context: Context, id_cliente: String) : Dialog(context)
         mail.text = dataPersonal[4]
         professione.text = dataPersonal[5]
 
+        var SiGuantiactivated = false
+        var Siiporidrosiactivated = false
+        var SiMicosiUnghialeactivated = false
+        var SiOncicofobiaactivated = false
+        var SiStrappareCuticoleactivated = false
+        var SiProblemiOrmonaliactivated = false
+        var ConsensoInformativoActivated = false
 
+        val thread = Runnable {
+            SiGuanti.setOnClickListener {
+                NoGuanti.isChecked = false
+                SiGuanti.isChecked = true
+                SiGuantiactivated = true
+            }
+            NoGuanti.setOnClickListener {
+                SiGuanti.isChecked = false
+                NoGuanti.isChecked = true
+                SiGuantiactivated = false
+            }
+
+            SiIporidrosi.setOnClickListener {
+                NoIporidrosi.isChecked = false
+                SiIporidrosi.isChecked = true
+                Siiporidrosiactivated = true
+            }
+            NoIporidrosi.setOnClickListener {
+                SiIporidrosi.isChecked = false
+                NoIporidrosi.isChecked = true
+                Siiporidrosiactivated = false
+            }
+
+            SiMicosiUngueale.setOnClickListener {
+                NoMicosiUngueale.isChecked = false
+                SiMicosiUngueale.isChecked = true
+                SiMicosiUnghialeactivated = true
+            }
+            NoMicosiUngueale.setOnClickListener {
+                SiMicosiUngueale.isChecked = false
+                NoMicosiUngueale.isChecked = true
+                SiMicosiUnghialeactivated = false
+            }
+
+            SiOnicofobia.setOnClickListener {
+                NoOnicofobia.isChecked = false
+                SiOnicofobia.isChecked = true
+                SiOncicofobiaactivated = true
+            }
+            NoOnicofobia.setOnClickListener{
+                SiOnicofobia.isChecked = false
+                NoOnicofobia.isChecked = true
+                SiOncicofobiaactivated = false
+            }
+
+            SiStrappareCuticole.setOnClickListener {
+                NoStrappareCuticole.isChecked = false
+                SiStrappareCuticole.isChecked = true
+                SiStrappareCuticoleactivated = true
+            }
+            NoStrappareCuticole.setOnClickListener{
+                SiStrappareCuticole.isChecked = false
+                NoStrappareCuticole.isChecked = true
+                SiStrappareCuticoleactivated = false
+            }
+
+            SiProblemiOrmonali.setOnClickListener {
+                NoProblemiOrmonali.isChecked = false
+                SiProblemiOrmonali.isChecked = true
+                SiProblemiOrmonaliactivated = true
+            }
+            NoProblemiOrmonali.setOnClickListener{
+                SiProblemiOrmonali.isChecked = false
+                NoProblemiOrmonali.isChecked = true
+                SiProblemiOrmonaliactivated = false
+            }
+            consenso_informativo_mani_piedi_analisi.setOnClickListener{
+                ConsensoInformativoActivated = if(!ConsensoInformativoActivated){
+                    true
+                } else{
+                    true
+                }
+            }
+
+        }
+        thread.run()
+
+        addDigitalSignatureManiPiedi.setOnClickListener {
+
+            val DigitalSignturePad = DigitalSignature(context, this, null,  id_cliente)
+            DigitalSignturePad.show()
+        }
+
+        var AltroAnalisiLettoChecked = false
+        AltroAnalisiLettoText.isEnabled = false
+
+        AltroAnalisiLettoBox.setOnClickListener {
+
+            if(AltroAnalisiLettoChecked == false){
+
+                AltroAnalisiLettoChecked = true
+                AltroAnalisiLettoText.isEnabled = true
+
+            }
+            else{
+
+                AltroAnalisiLettoChecked = false
+                AltroAnalisiLettoText.isEnabled = false
+
+            }
+        }
+    }
+
+
+
+
+
+
+    fun setImageSignature(image: Bitmap){
+        imageSignature.setImageBitmap(image)
     }
 }

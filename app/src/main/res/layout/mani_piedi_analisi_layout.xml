@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:padding="15dp">
@@ -35,6 +36,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:background="@color/ScritteTitolo"
+                        android:gravity="center"
+                        android:textSize="25sp"
+                        android:text="SCHEDA ANALISI INFORMATIVA"
+                        android:textColor="@color/white"/>
 
                     <TextView
                         android:id="@+id/textView3"
@@ -451,6 +463,422 @@
                         </LinearLayout>
                     </HorizontalScrollView>
                 </androidx.cardview.widget.CardView>
+                <CheckBox
+                    android:id="@+id/consenso_informativo_mani_piedi_analisi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/consenso_informativo"/>
+
+                <Button
+                    android:id="@+id/addDigitalSignatureManiPiedi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="AGGIUNGI FIRMA" />
+
+                <ImageView
+                    android:id="@+id/imageSignature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"/>
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/ScritteTitolo"
+                    android:gravity="center"
+                    android:textSize="25sp"
+                    android:text="SCHEDA ANALISI VISIVA"
+                    android:textColor="@color/white"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:background="@color/ScritteTitolo"
+                        android:gravity="center"
+                        android:text="ANALISI LETTO" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:id="@+id/FungoAnalisiLetto"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Fungo" />
+
+                        <CheckBox
+                            android:id="@+id/PseudomaAnalisiLetto"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Pseudomonas" />
+
+                        <CheckBox
+                            android:id="@+id/ArrossatoAnalisiLetto"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Arrossato" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <CheckBox
+                            android:id="@+id/AltroAnalisiLettoBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="" />
+                        <EditText
+                            android:id="@+id/AltroAnalisiLettoText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Altro"
+                            android:inputType="textCapSentences|textMultiLine"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/ScritteTitolo"
+                    android:gravity="center"
+                    android:text="ANALISI CUTICOLE" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/SensibiliAnalisiCuticole"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Sensibili" />
+
+                    <CheckBox
+                        android:id="@+id/SpesseAnalisiCuticole"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Spesse" />
+
+                    <CheckBox
+                        android:id="@+id/LesionataAnalisiCuticole"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Lesionata" />
+
+                    <CheckBox
+                        android:id="@+id/MangiataAnalisiCuticole"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Mangiate" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <CheckBox
+                        android:id="@+id/AltroAnalisiCuticoleBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="" />
+                    <EditText
+                        android:id="@+id/AltroAnalisiCuticoleText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Altro"
+                        android:inputType="textCapSentences|textMultiLine"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/ScritteTitolo"
+                    android:gravity="center"
+                    android:text="SUPERFICE" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/OnicolisiSuperfice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Onicolisi" />
+
+                    <CheckBox
+                        android:id="@+id/SfaldataSuperfice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Sfaldata" />
+
+                    <CheckBox
+                        android:id="@+id/RigataSuperfice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Rigata" />
+
+                    <CheckBox
+                        android:id="@+id/AvvallamentiSuperfice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Avvallamenti" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/MaccheBiancheSuperfice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Macche Bianche" />
+
+                    <CheckBox
+                        android:id="@+id/GrassaLucidaSuperfice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Grassa/Lucida" />
+
+                    <CheckBox
+                        android:id="@+id/SeccaSuperfice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Secca" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <CheckBox
+                        android:id="@+id/AltroSuperficeBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="" />
+                    <EditText
+                        android:id="@+id/AltroSuperficeText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Altro"
+                        android:inputType="textCapSentences|textMultiLine"/>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/ScritteTitolo"
+                    android:gravity="center"
+                    android:text="ARCHITETTURA" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/LateraliAssentiArchitettura"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Laterali Assenti" />
+
+                    <CheckBox
+                        android:id="@+id/AVentaglioArchitettura"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="A ventaglio" />
+
+                    <CheckBox
+                        android:id="@+id/OnicogrifoticaArchitettura"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Onicogrifotica" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/CucchiaioArchitettura"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="A cucchiaio" />
+
+                    <CheckBox
+                        android:id="@+id/StandardArchitettura"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Standard" />
+
+                    <CheckBox
+                        android:id="@+id/OnicofagicaSuperfice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Onicofagica" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <CheckBox
+                        android:id="@+id/AltroArchitetturaBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="" />
+                    <EditText
+                        android:id="@+id/AltroArchitetturaText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Altro"
+                        android:inputType="textCapSentences|textMultiLine"/>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/ScritteTitolo"
+                    android:gravity="center"
+                    android:text="FOTO" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/Foto1Analisi"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_weight="1"
+                        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+                    <EditText
+                        android:id="@+id/DescrizioneFoto1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="Descrizione Foto(opzionale)"
+                        android:inputType="textCapSentences|textMultiLine" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/Foto2Analisi"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_weight="1"
+                        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+                    <EditText
+                        android:id="@+id/DescrizioneFoto2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="Descrizione Foto(opzionale)"
+                        android:inputType="textCapSentences|textMultiLine" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/Foto3Analisi"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_weight="1"
+                        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+                    <EditText
+                        android:id="@+id/DescrizioneFoto3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="Descrizione Foto(opzionale)"
+                        android:inputType="textCapSentences|textMultiLine" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/Foto4Analisi"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_weight="1"
+                        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+                    <EditText
+                        android:id="@+id/DescrizioneFoto4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="Descrizione Foto(opzionale)"
+                        android:inputType="textCapSentences|textMultiLine"/>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/Btn_SaveSchedaAnalisi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="SALVA SCHEDA ANALISI"/>
+
             </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

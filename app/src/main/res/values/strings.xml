@@ -5,4 +5,11 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="new_admin"><u><i><b>Registrati</b></i></u></string>
     <string name="to_login_text"><u><i><b>vai al login</b></i></u></string>
+    <string name="consenso_informativo">
+    <u><i><b>Dichiaro che le informazioni sopra riportate sono veritiere e corrispondono al mio reale stato fisico e di salute, mi prendo la piena responsabilità di problematiche e danni derivanti
+    da trattamenti non adatti al mio reale stato fisico e di salute, se le informazioni da me fornite non corrispondono al vero. I dati sopra riportati verranno utilizzati nel rispetto della privacy al solo scopo
+    di consigliarle il trattamento più adatto.
+    </b></i></u>
+    </string>
+
 </resources>

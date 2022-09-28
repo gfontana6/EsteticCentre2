@@ -5,12 +5,12 @@ import java.sql.DriverManager
 import java.sql.SQLException
 
 class Connessione() {
-    private val host = "ec2-34-247-72-29.eu-west-1.compute.amazonaws.com"
-    private val database = "dcegcrscdr84ae"
-    private val port = 5432
-    private val user = "bubqzmnmhdnqhr"
-    private val pass = "90e7b061f55ecff165560d1fac71914f389628046e39a16265f9cb1f24280b65"
-    private var url = "jdbc:postgresql://ec2-34-247-72-29.eu-west-1.compute.amazonaws.com:5432/dcegcrscdr84ae?sslmode=require"
+    private val host = "ec2-34-249-236-155.eu-west-1.compute.amazonaws.com"
+    private val database = "d5ledenupga0hs"
+    private val port = "5432"
+    private val user = "ylijlhmxcjjzzp"
+    private val pass = "ebcdd6f1312459645a3736315d09f9793fb5cb62e880f439db45ec92cc5ae1d5"
+    private var url = "jdbc:postgresql://$host:$port/$database?sslmode=require"
 
     fun connetti(): Connection? {
             Class.forName("org.postgresql.Driver") /*Inizializzo il Driver giusto per PostgreSQL*/
