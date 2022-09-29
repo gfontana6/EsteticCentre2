@@ -38,15 +38,9 @@ class MainActivity : AppCompatActivity() {
         loginText.setTypeface(null, Typeface.BOLD_ITALIC)
 
         var readed = ""
-        val letDirectory = File(this.filesDir, "textUsername")
-        if(!(letDirectory.exists())){
-            letDirectory.createNewFile()
-        }
-        letDirectory.mkdirs()
-        val file = File(letDirectory, "username.txt")
-        if(!(letDirectory.exists())){
-            file.createNewFile()
-        }
+        val file = File(this.filesDir, "textUsername")
+        file.createNewFile()
+        file.parentFile?.mkdirs()
         readed = FileInputStream(file).bufferedReader().use { it.readText() }
 
         var id_user = ""
@@ -89,18 +83,16 @@ class MainActivity : AppCompatActivity() {
             println(encrypt(password.text.toString()))
             val Credenziali = db.checkLogin(username.text.toString(), encrypt(password.text.toString().trim())?.trim())
             if(Credenziali.split(";")[0] == "Authenticate"){
-                val letDirectory = File(this.filesDir, "textUsername")
-                letDirectory.createNewFile()
-                letDirectory.mkdirs()
-                val file = File(letDirectory, "username.txt")
+
+                val file = File(this.filesDir, "textUsername")
                 file.createNewFile()
+                file.parentFile?.mkdirs()
                 file.delete()
 
                 try {
-                    val letDirectory = File(this.filesDir, "textUsername")
-                    letDirectory.createNewFile()
-                    letDirectory.mkdirs()
-                    val file = File(letDirectory, "username.txt")
+                    val file = File(this.filesDir, "textUsername")
+                    file.createNewFile()
+                    file.parentFile?.mkdirs()
                     file.createNewFile()
                     file.appendText(username.text.toString() + ";" + Credenziali.split(";")[1])
                 }

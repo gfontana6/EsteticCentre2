@@ -118,6 +118,44 @@ class Analisi_mani_piedi(context: Context, id_cliente: String) : Dialog(context)
                     true
                 }
             }
+            var AltroAnalisiLettoChecked = false
+            AltroAnalisiLettoText.isEnabled = false
+
+            AltroAnalisiLettoBox.setOnClickListener {
+
+                if(AltroAnalisiLettoChecked == false){
+
+                    AltroAnalisiLettoChecked = true
+                    AltroAnalisiLettoText.isEnabled = true
+
+                }
+                else{
+
+                    AltroAnalisiLettoChecked = false
+                    AltroAnalisiLettoText.isEnabled = false
+
+                }
+            }
+
+            var AltroAnalisiLettoChecked = false
+            AltroAnalisiLettoText.isEnabled = false
+
+            AltroAnalisiLettoBox.setOnClickListener {
+
+                if(AltroAnalisiLettoChecked == false){
+
+                    AltroAnalisiLettoChecked = true
+                    AltroAnalisiLettoText.isEnabled = true
+
+                }
+                else{
+
+                    AltroAnalisiLettoChecked = false
+                    AltroAnalisiLettoText.isEnabled = false
+
+                }
+            }
+
 
         }
         thread.run()
@@ -128,24 +166,6 @@ class Analisi_mani_piedi(context: Context, id_cliente: String) : Dialog(context)
             DigitalSignturePad.show()
         }
 
-        var AltroAnalisiLettoChecked = false
-        AltroAnalisiLettoText.isEnabled = false
-
-        AltroAnalisiLettoBox.setOnClickListener {
-
-            if(AltroAnalisiLettoChecked == false){
-
-                AltroAnalisiLettoChecked = true
-                AltroAnalisiLettoText.isEnabled = true
-
-            }
-            else{
-
-                AltroAnalisiLettoChecked = false
-                AltroAnalisiLettoText.isEnabled = false
-
-            }
-        }
     }
 
 
