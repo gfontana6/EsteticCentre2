@@ -7,29 +7,28 @@ class Db_query {
 
 
     fun checkLogin(username: String, pass: String?): String {
-
-        val conn = Connessione().connetti()
-        val stmt: Statement = conn!!.createStatement()
-        var ris: ResultSet = stmt.executeQuery("SELECT id_user, username FROM credenziali " + "WHERE username = '$username' AND password = '$pass' ;")
-        if (!ris.next()) {
-            ris = stmt.executeQuery("SELECT username FROM credenziali " + "WHERE username = '$username' ;")
+            val conn = Connessione().connetti()
+            val stmt: Statement = conn!!.createStatement()
+            var ris: ResultSet = stmt.executeQuery("SELECT id_user, username FROM credenziali " + "WHERE username = '$username' AND password = '$pass' ;")
             if (!ris.next()) {
-                Connessione().chiudiConn(conn)
-                return "Username inesistente o errato"
-            } else {
-                val ris2: ResultSet = stmt.executeQuery("SELECT password FROM credenziali " + "WHERE username = '$username' AND password = '$pass' ;")
-                if (!(ris2.next())) {
+                ris = stmt.executeQuery("SELECT username FROM credenziali " + "WHERE username = '$username' ;")
+                if (!ris.next()) {
                     Connessione().chiudiConn(conn)
-                    return "password errata"
+                    return "Username inesistente o errato"
+                } else {
+                    val ris2: ResultSet = stmt.executeQuery("SELECT password FROM credenziali " + "WHERE username = '$username' AND password = '$pass' ;")
+                    if (!(ris2.next())) {
+                        Connessione().chiudiConn(conn)
+                        return "password errata"
+                    }
                 }
+            } else {
+                val id_user = ris.getString(1)
+                Connessione().chiudiConn(conn)
+                return "Authenticate;$id_user"
             }
-        } else {
-            val id_user = ris.getString(1)
             Connessione().chiudiConn(conn)
-            return "Authenticate;$id_user"
-        }
-        Connessione().chiudiConn(conn)
-        return ""
+            return ""
     }
 
     fun searchClient(singol: Boolean, nameSearch: String?, id_user: String): MutableList<String>? {
@@ -121,6 +120,7 @@ class Db_query {
 
     fun AutoLogin(update:Boolean, auto: String?, id_user: String): Boolean {
 
+        var result = ""
         val conn = Connessione().connetti()
         val stmt: Statement = conn!!.createStatement()
 
@@ -186,6 +186,142 @@ class Db_query {
         else{
             return null
         }
+    }
+
+    fun inserNewAnalisi(
+        id_ultimo_trattamento: Int, id_cliente: Int, professione: String, farmaci: String, patologie: String,
+        allergie: String, colore: String, hobby_sport: String, guanti_domanda: Boolean,
+        iporidrosi_domanda: Boolean, micosi_unghiale_domanda: Boolean,
+        onicofobia_domanda: Boolean, strappare_cuticole_domanda: Boolean,
+        ormonali_domanda: Boolean, consenso: Boolean, firma_digitale: String,
+        analisi_letto: String, analisi_cuticole: String, superficie: String,
+        architettura: String, foto1: String, foto2: String, foto3: String,
+        foto4: String
+    ) : Boolean {
+
+
+        var checkInsertAnalisi = false
+
+        var conn = Connessione().connetti()
+        var stmt: Statement = conn!!.createStatement()
+        var ris = stmt.execute("UPDATE public.clienti SET professione = '$professione' WHERE id_cliente = $id_cliente")
+
+        if(ris) {
+            Connessione().chiudiConn(conn)
+            checkInsertAnalisi = false
+        } else {
+            Connessione().chiudiConn(conn)
+            checkInsertAnalisi = true
+        }
+
+        conn = Connessione().connetti()
+        stmt = conn!!.createStatement()
+
+        ris = stmt.execute("INSERT INTO public.analisi_informativa_mani_piedi(id_trattamento, id_cliente, farmaci, patologie," +
+                " allergie, colore, hobby_sport, guanti_domanda," +
+                " iporidrosi_domanda, micosi_ungueale_domanda, onicofobia_domanda, strappare_cuticole_domanda," +
+                " ormonali_domanda, consenso, firma_digitale) " +
+                "VALUES (${id_ultimo_trattamento+1}, $id_cliente, '$farmaci', '$patologie', '$allergie', '$colore', '$hobby_sport'," +
+                " $guanti_domanda, $iporidrosi_domanda, $micosi_unghiale_domanda, $onicofobia_domanda," +
+                " $strappare_cuticole_domanda, $ormonali_domanda, $consenso, '$firma_digitale');")
+
+        if(ris) {
+            Connessione().chiudiConn(conn)
+            checkInsertAnalisi = false
+        } else {
+            Connessione().chiudiConn(conn)
+            checkInsertAnalisi = true
+        }
+
+        conn = Connessione().connetti()
+        stmt = conn!!.createStatement()
+        ris = stmt.execute("INSERT INTO public.analisi_visiva_mani_piedi(id_trattamento, id_cliente, analisi_letto," +
+                " analisi_cuticole, superficie, architettura, foto1," +
+                " foto2, foto3, foto4) " +
+                "VALUES (${id_ultimo_trattamento+1}, $id_cliente, '$analisi_letto', '$analisi_cuticole', '$superficie', '$architettura'," +
+                " '$foto1', '$foto2', '$foto3', '$foto4');")
+
+        if(ris) {
+            Connessione().chiudiConn(conn)
+            checkInsertAnalisi = false
+        } else {
+            Connessione().chiudiConn(conn)
+            checkInsertAnalisi = true
+        }
+
+        return checkInsertAnalisi
+    }
+/*
+    fun leggoimmagineprova(): String? {
+
+        val conn = Connessione().connetti()
+        val stmt: Statement = conn!!.createStatement()
+        val ris: ResultSet?
+
+        ris = stmt.executeQuery("SELECT foto1 FROM public.analisi_visiva_mani_piedi WHERE id_cliente = 2")
+
+        if(ris.next()){
+            val image = ris.getString(1)
+            Connessione().chiudiConn(conn)
+            return image
+
+        }
+        else {
+            Connessione().chiudiConn(conn)
+            return null
+        }
+
+    }
+
+ */
+
+    fun takeLastIdTrattment(id_cliente: Int): Int? {
+
+        val conn = Connessione().connetti()
+        val stmt: Statement = conn!!.createStatement()
+        val ris: ResultSet?
+
+        ris = stmt.executeQuery("SELECT MAX(id_trattamento) FROM public.analisi_informativa_mani_piedi WHERE id_cliente = $id_cliente")
+
+        if(ris.next()){
+            val id = ris.getInt(1)
+            Connessione().chiudiConn(conn)
+            return id
+
+        }
+        else {
+            Connessione().chiudiConn(conn)
+            return null
+        }
+
+    }
+
+    fun insertNewTecnica(
+        id_ultimo_trattamento: Int, id_cliente: Int, data: String, trattamento: String, mediatore: String,
+        base: String, gel: String, top: String, colore: String,
+        deco: String, altro: String
+    ) : Boolean {
+
+        var checkInsertAnalisi = false
+
+        val conn = Connessione().connetti()
+        val stmt: Statement = conn!!.createStatement()
+
+        val ris = stmt.execute("INSERT INTO public.scheda_tecnica_mani_piedi(id_trattamento, id_cliente, data, trattamento," +
+                " base, mediatore, gel, top," +
+                " colore, deco, altro) " +
+                "VALUES (${id_ultimo_trattamento+1}, $id_cliente, '$data', '$trattamento', '$base', '$mediatore', '$gel'," +
+                " '$top', '$colore', '$deco', '$altro');")
+
+        if(ris) {
+            Connessione().chiudiConn(conn)
+            checkInsertAnalisi = false
+        } else {
+            Connessione().chiudiConn(conn)
+            checkInsertAnalisi = true
+        }
+
+        return checkInsertAnalisi
     }
 
 }

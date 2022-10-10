@@ -11,6 +11,10 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.setPadding
 import kotlinx.android.synthetic.main.homepage_user_layout.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
 
 class Homepage_User: AppCompatActivity() {
 
@@ -33,15 +37,19 @@ class Homepage_User: AppCompatActivity() {
 
         showAllClients()
 
-        btn_search_client.setOnClickListener{
-            if(nameSearchclient.text.toString() == "" || nameSearchclient.text.toString() == null){
+        btn_search_client.setOnClickListener {
+            if (nameSearchclient.text.toString() == "" || nameSearchclient.text.toString() == null) {
                 TableClients.removeAllViews()
                 showAllClients()
-            }
-            else {
-                val research = db.searchClient(true, nameSearchclient.text.toString(), id_user!!)
+            } else {
+                val research =
+                    db.searchClient(true, nameSearchclient.text.toString(), id_user!!)
                 if (research == null) {
-                    Toast.makeText(this, "Cliente desiderato non trovato", Toast.LENGTH_SHORT)
+                    Toast.makeText(
+                        this,
+                        "Cliente desiderato non trovato",
+                        Toast.LENGTH_SHORT
+                    )
                         .show()
                 } else {
                     val textView = TextView(this)
@@ -75,18 +83,18 @@ class Homepage_User: AppCompatActivity() {
             }
         }
 
-        logoutText.setOnClickListener{
+
+        logoutText.setOnClickListener {
             db.AutoLogin(true, "false", id_user!!)
-            startActivity(Intent(this, MainActivity::class.java))
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
 
-        addClient.setOnClickListener{
-            val dialoginsert : Dialog = dialoginsertclient(this, id_user!!)
+        addClient.setOnClickListener {
+            val dialoginsert: Dialog = dialoginsertclient(this, id_user!!)
             dialoginsert.show()
         }
-
     }
-
     override fun onBackPressed() {
         startActivity(Intent(this, MainActivity::class.java))
     }

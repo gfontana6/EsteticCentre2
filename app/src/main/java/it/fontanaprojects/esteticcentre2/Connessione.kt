@@ -1,5 +1,6 @@
 package it.fontanaprojects.esteticcentre2
 
+import android.app.AlertDialog
 import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.SQLException
@@ -14,10 +15,11 @@ class Connessione() {
 
     fun connetti(): Connection? {
             Class.forName("org.postgresql.Driver") /*Inizializzo il Driver giusto per PostgreSQL*/
-            var conn: Connection? = DriverManager.getConnection(url, user, pass) /*Connessione al database*/
+            var conn: Connection? =
+                DriverManager.getConnection(url, user, pass) /*Connessione al database*/
             println("Connesso al database")
 
-        return conn
+            return conn
     }
 
     fun chiudiConn(conn: Connection) {

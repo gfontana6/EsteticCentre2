@@ -15,7 +15,7 @@ import java.util.*
 
 class dialoginsertclient(context: Context, id_user: String) : Dialog(context) {
 
-    val myCalendar: Calendar = Calendar.getInstance()
+    private val myCalendar: Calendar = Calendar.getInstance()
     private val day :Int = myCalendar.get(Calendar.DAY_OF_MONTH)
     private val month:Int = myCalendar.get(Calendar.MONTH)
     private val year :Int = myCalendar.get(Calendar.YEAR)
