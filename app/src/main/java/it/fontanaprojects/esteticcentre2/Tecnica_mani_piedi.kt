@@ -32,7 +32,7 @@ class Tecnica_mani_piedi : AppCompatActivity() {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         setContentView(R.layout.mani_piedi_tecnica)
 
-        var editText: EditText = EditText(this)
+        var editText = EditText(this)
 
         val id_cliente : String? = intent.getStringExtra("id_client")
         val id_ultimo_trattamento: Int = intent.getIntExtra("id_ultimo_trattamento", 1)

@@ -1,10 +1,12 @@
 package it.fontanaprojects.esteticcentre2
 
+import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
+import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.TextView
@@ -13,7 +15,6 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.setPadding
 import kotlinx.android.synthetic.main.chose_scheda_analisi_tecnica_ed_ricerca.*
-import kotlinx.android.synthetic.main.homepage_user_layout.*
 
 class choseScheda(private val choose: String, context: Context, id_client: String?) : Dialog(context){
 
@@ -55,19 +56,14 @@ class choseScheda(private val choose: String, context: Context, id_client: Strin
                     }
                 }).start()
 
-                /*
-                Thread(Runnable {
+                //recupero dei trattamenti fatti
 
-                    //recupero dei trattamenti fatti
-
-                }).start()
-
-                 */
             }
             else if(choose == "mani_piedi"){
                 elenco_trattamenti_text.text = "ELENCO TRATTAMENTI MANI/PIEDI"
                 Thread(Runnable{
                     btn_add_analisi.setOnClickListener {
+                        btn_add_tecnica.isEnabled = true
                         val intent = Intent(context, Analisi_mani_piedi::class.java)
                         intent.putExtra("id_client", id_client)
                         intent.putExtra("id_ultimo_trattamento", id_ultimo_trattamento)
@@ -81,61 +77,57 @@ class choseScheda(private val choose: String, context: Context, id_client: Strin
                     }
                 }).start()
 
-                Thread(Runnable {
 
-                    //recupero dei trattamenti fatti
-                   // showAllAnalisi(choose)
+                showAllAnalisi(choose)
 
-                }).start()
+                Toast.makeText(context, "Per poter aggiungere le schede tecniche associate, bisogna prima " +
+                        "compilare la scheda analisi informativa e visiva", Toast.LENGTH_LONG).show()
+
             }
     }
 
-   /* fun showAllAnalisi(type: String){
-        val namesClient = db.searchTrattament(false, null, id_client, type)
+    fun showAllAnalisi(type: String){
+        val namesClient = db.searchTrattament(null, true, id_client, type)
 
         if(namesClient != null){
             var i = 0
             while(i < namesClient.size){
                 val textView = TextView(context)
-                val namesClientSplitted = namesClient.get(i).split(";")
-                textView.text = namesClientSplitted[1]
+                val TrattamentsSplitted = namesClient.get(i).split(";")
+                textView.text = TrattamentsSplitted[1] + ":\n" + TrattamentsSplitted[2]
+                textView.textAlignment = View.TEXT_ALIGNMENT_CENTER
+                textView.gravity = View.TEXT_ALIGNMENT_CENTER
                 textView.setPadding(3)
                 textView.setTextSize(15F)
                 textView.background = ResourcesCompat.getDrawable(context.resources, R.drawable.border, null)
                 textView.setTypeface(null, Typeface.BOLD_ITALIC)
                 textView.isClickable = true
 
-                /*
                 textView.setOnClickListener{
 
-                    val nameClientResultSplitted = textView.text.toString().split(" - ")
-
-                    val intent = Intent(this, ManageClient::class.java)
-                    intent.putExtra("nameClientIntent", nameClientResultSplitted[1])
-                    intent.putExtra("id_cliente", namesClientSplitted[0])
-                    intent.putExtra("id_user", id_user)
-                    intent.putExtra("name", admin)
-                    startActivity(intent)
+                    val showTrattaments = ShowTrattaments(TrattamentsSplitted[0], context)
+                    showTrattaments.show()
 
                 }
-                */
 
                 textView.setTextColor(ContextCompat.getColor(context, R.color.blue_link))
-                TableClients.addView(textView)
+                TableTrattament.addView(textView)
                 i++
             }
         }
         else {
-            TableClients.removeAllViews()
+            TableTrattament.removeAllViews()
             val textView = TextView(context)
             textView.text = "Nessun trattamento trovato"
+            textView.textAlignment = View.TEXT_ALIGNMENT_CENTER
+            textView.gravity = View.TEXT_ALIGNMENT_CENTER
             textView.setPadding(3)
             textView.textSize = 15F
             textView.background = ResourcesCompat.getDrawable(context.resources, R.drawable.border, null)
             textView.setTypeface(null, Typeface.BOLD_ITALIC)
             textView.setTextColor(ContextCompat.getColor(context, R.color.black))
-            TableClients.addView(textView)
+            TableTrattament.addView(textView)
         }
     }
-*/
+
 }

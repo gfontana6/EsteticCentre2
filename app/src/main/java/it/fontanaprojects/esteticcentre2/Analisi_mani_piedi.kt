@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toBitmap
 import kotlinx.android.synthetic.main.mani_piedi_analisi_layout.*
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Runnable
 import java.io.ByteArrayOutputStream
 import kotlin.coroutines.CoroutineContext
 
@@ -47,13 +48,22 @@ class Analisi_mani_piedi : AppCompatActivity() {
 
         val db = Db_query()
 
-        val dataPersonal = db.readPersonalData(id_cliente!!)
-        name_cognometext.text = dataPersonal!![0]
-        data_nascita.text = dataPersonal[1]
-        address.text = dataPersonal[2]
-        tel.text = dataPersonal[3]
-        mail.text = dataPersonal[4]
-        professione.setText(dataPersonal[5])
+        Thread(Runnable {
+            val dataPersonal = db.readPersonalData(id_cliente!!)
+            name_cognometext.text = dataPersonal!![0]
+            data_nascita.text = dataPersonal[1]
+            address.text = dataPersonal[2]
+            tel.text = dataPersonal[3]
+            mail.text = dataPersonal[4]
+            professione.setText(dataPersonal[5])
+
+            professione.isEnabled = false
+            farmaci.isEnabled = false
+            patologie.isEnabled = false
+            allergie.isEnabled = false
+            colore_preferito.isEnabled = false
+            hobby_sport.isEnabled = false
+        }).start()
 
         var SiGuantiactivated = false
         var Siiporidrosiactivated = false
@@ -62,13 +72,6 @@ class Analisi_mani_piedi : AppCompatActivity() {
         var SiStrappareCuticoleactivated = false
         var SiProblemiOrmonaliactivated = false
         var ConsensoInformativoActivated = false
-
-        professione.isEnabled = false
-        farmaci.isEnabled = false
-        patologie.isEnabled = false
-        allergie.isEnabled = false
-        colore_preferito.isEnabled = false
-        hobby_sport.isEnabled = false
 
         val thread1=Thread(Runnable {
 
@@ -93,6 +96,12 @@ class Analisi_mani_piedi : AppCompatActivity() {
                 NoIporidrosi.isChecked = true
                 Siiporidrosiactivated = false
             }
+        })
+        thread1.isDaemon = true
+        thread1.start()
+
+        val thread2 = Thread(Runnable {
+
             SiMicosiUngueale.setOnClickListener {
                 NoMicosiUngueale.isChecked = false
                 SiMicosiUngueale.isChecked = true
@@ -115,6 +124,12 @@ class Analisi_mani_piedi : AppCompatActivity() {
                 SiOncicofobiaactivated = false
             }
 
+        })
+        thread2.isDaemon = true
+        thread2.start()
+
+        val thread3 = Thread(Runnable {
+
             SiStrappareCuticole.setOnClickListener {
                 NoStrappareCuticole.isChecked = false
                 SiStrappareCuticole.isChecked = true
@@ -125,6 +140,12 @@ class Analisi_mani_piedi : AppCompatActivity() {
                 NoStrappareCuticole.isChecked = true
                 SiStrappareCuticoleactivated = false
             }
+
+        })
+        thread3.isDaemon = true
+        thread3.start()
+
+        val thread4 = Thread(Runnable {
 
             SiProblemiOrmonali.setOnClickListener {
                 NoProblemiOrmonali.isChecked = false
@@ -144,12 +165,12 @@ class Analisi_mani_piedi : AppCompatActivity() {
                     true
                 }
             }
-            Thread.sleep(2000)
-        })
-        thread1.isDaemon = true
-        thread1.start()
 
-        val thread2 = Thread(
+        })
+        thread4.isDaemon = true
+        thread4.start()
+
+        val thread5 = Thread(
             Runnable {
                 var AltroAnalisiLettoChecked = false
                 AltroAnalisiLettoText.isEnabled = false
@@ -222,6 +243,11 @@ class Analisi_mani_piedi : AppCompatActivity() {
 
                     }
                 }
+            })
+            thread5.isDaemon = true
+            thread5.start()
+
+            val thread6 = Thread(Runnable{
 
                 var professionChecked = false
                 professione.isEnabled = false
@@ -332,10 +358,10 @@ class Analisi_mani_piedi : AppCompatActivity() {
                 }
                 Thread.sleep(3000)
             })
-            thread2.isDaemon = true
-            thread2.start()
+            thread6.isDaemon = true
+            thread6.start()
 
-            val thread3 = Thread(
+            val thread7 = Thread(
                 Runnable {
                     val mutableListFoto: MutableList<ImageView> = mutableListOf()
                     mutableListFoto.add(0, Foto1Analisi)
@@ -384,16 +410,14 @@ class Analisi_mani_piedi : AppCompatActivity() {
 
                 }
             )
-        thread3.isDaemon = true
-        thread3.start()
+        thread7.isDaemon = true
+        thread7.start()
 
         addDigitalSignatureManiPiedi.setOnClickListener {
 
-            val DigitalSignturePad = DigitalSignature(this, this, null,  id_cliente)
+            val DigitalSignturePad = DigitalSignature(this, this, null,  id_cliente!!)
             DigitalSignturePad.show()
         }
-
-
 
         val threadSaveAll = Thread(Runnable{
             Btn_SaveSchedaAnalisi.setOnClickListener{
@@ -592,7 +616,7 @@ class Analisi_mani_piedi : AppCompatActivity() {
                     println(imageFoto4String)*/
 
                 if(ConsensoInformativoActivated == true){
-                    val check_insert = db.inserNewAnalisi(id_ultimo_trattamento, id_cliente.toInt(), professioneValue, farmaciValue, patologieValue,
+                    val check_insert = db.inserNewAnalisi(id_ultimo_trattamento, id_cliente!!.toInt(), professioneValue, farmaciValue, patologieValue,
                     allergineValue, coloreValue, hobby_sportValue, SiGuantiactivated, Siiporidrosiactivated, SiMicosiUnghialeactivated,
                     SiOncicofobiaactivated, SiStrappareCuticoleactivated, SiProblemiOrmonaliactivated, ConsensoInformativoActivated,
                     imageSignatureString, analisiLetto, analisiCuticole, analisiSuperficie, analisiArchitettura, imageFoto1String,

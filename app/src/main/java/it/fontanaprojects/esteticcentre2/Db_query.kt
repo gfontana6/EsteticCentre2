@@ -324,4 +324,72 @@ class Db_query {
         return checkInsertAnalisi
     }
 
+    fun searchTrattament(id_trattamento: String?, onlyName: Boolean?, idClient: String?, type: String?): MutableList<String>? {
+
+        val conn = Connessione().connetti()
+        val stmt: Statement = conn!!.createStatement()
+        val informationtTrattaments : MutableList<String> = mutableListOf()
+        val ris: ResultSet
+
+        if(onlyName == true){
+            if(type == "mani_piedi"){
+                ris = stmt.executeQuery("SELECT id_trattamento, data, trattamento FROM scheda_tecnica_mani_piedi WHERE id_cliente = $idClient ORDER BY id_scheda_tecnica DESC")
+            }
+            else{
+                ris = stmt.executeQuery("SELECT id_trattamento, data, trattamento FROM scheda_tecnica_viso_corpo WHERE id_cliente = $idClient ORDER BY id_scheda_tecnica DESC")
+                //implement other solution for other technical information for viso_corpo
+            }
+
+            if(ris.next()){
+                var singolTrattament = ris.getString(1) + ";" + ris.getString(2) + ";" + ris.getString(3) + ";"
+                informationtTrattaments.add(singolTrattament)
+
+                while(ris.next()){
+                    singolTrattament = ris.getString(1) + ";" + ris.getString(2) + ";" + ris.getString(3) + ";"
+                    informationtTrattaments.add(singolTrattament)
+                }
+
+                Connessione().chiudiConn(conn)
+                return informationtTrattaments
+
+            }
+            else {
+                Connessione().chiudiConn(conn)
+                return null
+            }
+        }
+        else{
+            ris = stmt.executeQuery("SELECT data, trattamento, mediatore, base, gel, top, colore, deco, altro FROM scheda_tecnica_mani_piedi WHERE id_trattamento = $id_trattamento ORDER BY id_scheda_tecnica DESC")
+
+            if(ris.next()){
+                val singolTrattament = ris.getString(1) + ";" + ris.getString(2) + ";" +
+                        ris.getString(3) + ";" + ris.getString(4) + ";" +
+                        ris.getString(5) + ";" + ris.getString(6) + ";" +
+                        ris.getString(7) + ";" + ris.getString(8) + ";" +
+                        ris.getString(9) + ";"
+
+                informationtTrattaments.add(singolTrattament)
+
+                while(ris.next()){
+                    ris.getString(1) + ";" + ris.getString(2) + ";" +
+                            ris.getString(3) + ";" + ris.getString(4) + ";" +
+                            ris.getString(5) + ";" + ris.getString(6) + ";" +
+                            ris.getString(7) + ";" + ris.getString(8) + ";" +
+                            ris.getString(9) + ";"
+
+                    informationtTrattaments.add(singolTrattament)
+                }
+
+                Connessione().chiudiConn(conn)
+                return informationtTrattaments
+
+            }
+            else {
+                Connessione().chiudiConn(conn)
+                return null
+            }
+
+        }
+
+    }
 }

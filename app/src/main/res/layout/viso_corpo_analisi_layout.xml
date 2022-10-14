@@ -2,29 +2,1487 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:padding="15dp">
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:id="@+id/linearLayoutVisoCorpo"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-    </ScrollView>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.core.widget.NestedScrollView
+                    android:id="@+id/scrollView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutManiPiedi"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:background="@color/ScritteTitolo"
+                            android:gravity="center"
+                            android:text="SCHEDA ANALISI INFORMATIVA"
+                            android:textColor="@color/white"
+                            android:textSize="25sp" />
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:background="@color/ScritteTitolo"
+                            android:gravity="center"
+                            android:text="DATI PERSONALI"
+                            android:textColor="@color/black" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textview2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:text="NOME COGNOME:" />
+
+                            <TextView
+                                android:id="@+id/name_cognometext"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="prova " />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textview4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:text="DATA DI NASCITA: " />
+
+                            <TextView
+                                android:id="@+id/data_nascita"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="prova" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textview5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:text="INDIRIZZO: " />
+
+                            <TextView
+                                android:id="@+id/address"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="prova" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textview6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:text="TELEFONO: " />
+
+                            <TextView
+                                android:id="@+id/tel"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="prova" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textview7"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:text="E-MAIL: " />
+
+                            <TextView
+                                android:id="@+id/mail"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="prova" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.core.widget.NestedScrollView>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@color/ScritteTitolo"
+                android:gravity="center"
+                android:text="ANAMNESI CLIENTE"
+                android:textColor="@color/black" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <HorizontalScrollView
+                    android:id="@+id/scrollView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textview24"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:text="Hai subito recenti operazini?" />
+
+                            <RadioButton
+                                android:id="@+id/siOperazioni"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Si" />
+
+                            <RadioButton
+                                android:id="@+id/noOperazioni"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="No" />
+
+                            <TextView
+                                android:id="@+id/textview19"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:text="Hai problemi di salute?" />
+
+                            <RadioButton
+                                android:id="@+id/siProblemiSalute"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Si" />
+
+                            <RadioButton
+                                android:id="@+id/noProblemiSalute"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="No" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textview20"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:text="E' in attesa di un bambino?" />
+
+                            <RadioButton
+                                android:id="@+id/siDolceAttesa"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Si" />
+
+                            <RadioButton
+                                android:id="@+id/noDolceAttesa"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="No" />
+
+                            <TextView
+                                android:id="@+id/textview21"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:text="Abitudini di vita?" />
+
+                            <RadioButton
+                                android:id="@+id/siAbitudini"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Sedentaria" />
+
+                            <RadioButton
+                                android:id="@+id/qualiAbitudini"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Attiva" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textview22"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:text="Assumi farmaci?" />
+
+                            <RadioButton
+                                android:id="@+id/siFarmaci"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Si" />
+
+                            <RadioButton
+                                android:id="@+id/noFarmaci"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="No" />
+
+                            <TextView
+                                android:id="@+id/tipiFarmaci"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:text="Se si, di che tipo?" />
+
+                            <EditText
+                                android:id="@+id/qualifarmaci"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:hint="Scrivi qui..." />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textview15"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:text="Potresti avere delle reazioni allergiche?" />
+
+                            <RadioButton
+                                android:id="@+id/siReazioniAllergiche"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Si" />
+
+                            <RadioButton
+                                android:id="@+id/noReazioniAllergiche"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="No" />
+
+                            <TextView
+                                android:id="@+id/textview18"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:text="Se si, di che tipo?" />
+
+                            <EditText
+                                android:id="@+id/tipoReazioniAllergiche"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:hint="Scrivi qui..." />
+                        </LinearLayout>
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@color/ScritteTitolo"
+                android:gravity="center"
+                android:text="ABITUDINI ESTETICHE IN ISTITUTO"
+                android:textColor="@color/black" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <HorizontalScrollView
+                    android:id="@+id/scrollView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textview16"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:text="Hai già effettuato un trattamento in istituto?" />
+
+                            <RadioButton
+                                android:id="@+id/siTrattamentoInIstituto"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Si" />
+
+                            <RadioButton
+                                android:id="@+id/noTrattamentoInIstituto"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="No" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textview25"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:text="In istituto effettua un trattamento" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/quantospesso1trattamento"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="tutti i mesi" />
+
+                            <RadioButton
+                                android:id="@+id/quantospesso2trattamento"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Ogni due mesi" />
+
+                            <RadioButton
+                                android:id="@+id/quantospesso3trattamento"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="ogni tre mesi" />
+
+                            <RadioButton
+                                android:id="@+id/quantospesso4trattamento"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="una/due volte all'anno" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textview26"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:text="Quando in particolare?" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/quando1ultimotrattamento"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="prima delle vacanze" />
+
+                            <RadioButton
+                                android:id="@+id/quando2ultimotrattamento"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="all'inizio dell'inverno" />
+
+                            <RadioButton
+                                android:id="@+id/quando3ultimotrattamento"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="all'inizio della primavera" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textview27"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:text="Che tipo di trattamento effettua più spesso?" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/tipo1trattamentopiuspesso"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="pulizia della pelle" />
+
+                            <RadioButton
+                                android:id="@+id/tipo2trattamentopiuspesso"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="epilazione" />
+
+                            <RadioButton
+                                android:id="@+id/tipo3trattamentopiuspesso"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="trattamenti specifici viso" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/tipo4trattamentopiuspesso"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="trattamenti specifici corpo" />
+
+                            <RadioButton
+                                android:id="@+id/tipo5trattamentopiuspesso"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="solarium" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@color/ScritteTitolo"
+                android:gravity="center"
+                android:text="ABITUDINI ESTETICHE DOMICILIARI"
+                android:textColor="@color/black" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <HorizontalScrollView
+                    android:id="@+id/scrollView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textview28"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:text="Deterge la pelle?" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/deterge_almattino"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="al_mattino" />
+
+                            <RadioButton
+                                android:id="@+id/deterge_allasera"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="alla sera" />
+
+                            <RadioButton
+                                android:id="@+id/deterge_mattino_sera"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="mattino e sera" />
+
+                            <RadioButton
+                                android:id="@+id/deterge_dipende"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="dipende" />
+
+                            <RadioButton
+                                android:id="@+id/deterge_altro"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="altro" />
+
+                            <EditText
+                                android:id="@+id/qualifarmaci2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:hint="Scrivi qui..." />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textview30"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:text="Con quale prodotto?" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/prodotto_sapone"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="sapone" />
+
+                            <RadioButton
+                                android:id="@+id/prodotto_latte_sapone"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="detergente in latte + lozione" />
+
+                            <RadioButton
+                                android:id="@+id/deterge_schiumogeno"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="detergente schiumogeno" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textview32"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:text="Dopo la detersione la sua pelle" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/dopo_detersione_secca"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="è molto secca" />
+
+                            <RadioButton
+                                android:id="@+id/dopo_detersione_non_cambia"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="non cambia" />
+
+                            <RadioButton
+                                android:id="@+id/dopo_detersione_irritata"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="è irritata arrossata" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textview35"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:text="Cosa usa abitualmente?" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:id="@+id/abitualmente_latte"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="latte" />
+
+                                <RadioButton
+                                    android:id="@+id/abitualmente_tonico"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="tonico" />
+
+                                <RadioButton
+                                    android:id="@+id/abitualmente_esfoliante"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="esfoliante" />
+
+                                <RadioButton
+                                    android:id="@+id/abitualmente_crema_giorno"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="crema giorno" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:id="@+id/abitualmente_crema_notte"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="crema notte" />
+
+                                <RadioButton
+                                    android:id="@+id/abitualmente_siero_contorno_occhi"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="siero contorno occhi" />
+
+                                <RadioButton
+                                    android:id="@+id/abitualmente_siero_viso"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="siero viso" />
+
+                                <RadioButton
+                                    android:id="@+id/abitualmente_altro"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="altro" />
+
+                                <EditText
+                                    android:id="@+id/abitualmente_altro_value"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:hint="Scrivi qui..." />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@color/ScritteTitolo"
+                android:gravity="center"
+                android:text="FATTORI PRIMARI (COTISTUZIONALI)"
+                android:textColor="@color/black" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <HorizontalScrollView
+                    android:id="@+id/scrollView7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textview29"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:text="Obesità in famiglia" />
+
+                            <RadioButton
+                                android:id="@+id/siObesita"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="si" />
+
+                            <RadioButton
+                                android:id="@+id/noObesita"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="no" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textview31"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:text="Diabete" />
+
+                            <RadioButton
+                                android:id="@+id/siDiabete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="si" />
+
+                            <RadioButton
+                                android:id="@+id/noDiabete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="no" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textview33"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:text="Tiroide" />
+
+                            <RadioButton
+                                android:id="@+id/siTiroide"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="si" />
+
+                            <RadioButton
+                                android:id="@+id/noTiroide"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="no" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textview36"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:text="Ireterazioni circolatorie" />
+
+                            <RadioButton
+                                android:id="@+id/siIterazioniCircolatorie"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="si" />
+
+                            <RadioButton
+                                android:id="@+id/noIterazioniCircolatorie"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="no" />
+
+                            <RadioButton
+                                android:id="@+id/ArteriosoCircolatorie"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="arteriose" />
+
+                            <RadioButton
+                                android:id="@+id/venoseCircolatorio"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="venose" />
+
+                            <RadioButton
+                                android:id="@+id/linfaticheCircolatorio"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="linfatiche" />
+
+                            <RadioButton
+                                android:id="@+id/altroCircolatorio"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="altro" />
+
+                            <EditText
+                                android:id="@+id/cosaAltroCircolatorio"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:hint="Scrivi qui..." />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@color/ScritteTitolo"
+                android:gravity="center"
+                android:text="FATTORI SECONDARI (FUNZIONI FISIOLOGICHE)"
+                android:textColor="@color/black" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <HorizontalScrollView
+                    android:id="@+id/scrollView8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textview39"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:text="Diuresi" />
+
+                            <RadioButton
+                                android:id="@+id/scarsaDiuresi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="scarsa" />
+
+                            <RadioButton
+                                android:id="@+id/discretaDiuresi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="discreta" />
+
+                            <RadioButton
+                                android:id="@+id/buonaDiuresi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="buona" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textview40"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:text="Digestione" />
+
+                            <RadioButton
+                                android:id="@+id/lentaDigestione"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="lenta" />
+
+                            <RadioButton
+                                android:id="@+id/buonaDigestione"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="buona" />
+
+                            <RadioButton
+                                android:id="@+id/difficileDigestione"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="difficle" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textview41"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:text="Circolazione sanguigna" />
+
+                            <RadioButton
+                                android:id="@+id/pressioneCircolazione"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="pressione" />
+
+                            <RadioButton
+                                android:id="@+id/capillariCircolazione"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="capillari" />
+
+                            <RadioButton
+                                android:id="@+id/varicoseCircolazione"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="vene varicose" />
+
+                            <RadioButton
+                                android:id="@+id/mani_piedi_freddiCircolazione"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="mani e piedi freddi" />
+
+                            <RadioButton
+                                android:id="@+id/altroCircolazione"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="altro" />
+
+                            <EditText
+                                android:id="@+id/cosaAltroCircolatorio2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:hint="Scrivi qui..." />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textview43"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:text="Peristalsi intestinale" />
+
+                            <RadioButton
+                                android:id="@+id/scarsaPeristalsi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="scarsa" />
+
+                            <RadioButton
+                                android:id="@+id/discretaPeristalsi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="discreta" />
+
+                            <RadioButton
+                                android:id="@+id/buonaPeristalsi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="buona" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textview44"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:text="Ciclo mestruale" />
+
+                            <RadioButton
+                                android:id="@+id/fertileMestruo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="fertile" />
+
+                            <RadioButton
+                                android:id="@+id/non_fertileMestruo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="non fertile" />
+
+                            <RadioButton
+                                android:id="@+id/regolareMestruo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="regolare" />
+
+                            <RadioButton
+                                android:id="@+id/irregolareMestruo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="irregolare" />
+
+                            <RadioButton
+                                android:id="@+id/assenteMestruo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="assente" />
+
+                            <RadioButton
+                                android:id="@+id/gravidanza_n_Mestruo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="gravidanza n°" />
+
+                            <EditText
+                                android:id="@+id/numero_gravidanza_value_Mestruo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:hint="Scrivi qui..." />
+
+                            <RadioButton
+                                android:id="@+id/contraccettiviMestruo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="contraccettivi" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textview46"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:text="Stato del sonno/veglia" />
+
+                            <RadioButton
+                                android:id="@+id/qualitaSonno"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="qualità del sonno" />
+
+                            <EditText
+                                android:id="@+id/qualitaSonnoValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:hint="Scrivi qui..." />
+
+                            <RadioButton
+                                android:id="@+id/ansiaSonno"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="ansia" />
+
+                            <RadioButton
+                                android:id="@+id/tachicardiaSonno"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="tachicardia" />
+
+                            <RadioButton
+                                android:id="@+id/asteniaSonno"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="astenia" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@color/ScritteTitolo"
+                android:gravity="center"
+                android:text="ABITUDINI QUOTIDIANE"
+                android:textColor="@color/black" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <HorizontalScrollView
+                    android:id="@+id/scrollView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textview47"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:text="Attività fisica:" />
+
+                            <RadioButton
+                                android:id="@+id/scarsaFisico"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="scarsa" />
+
+                            <RadioButton
+                                android:id="@+id/leggeraFisico"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="leggera" />
+
+                            <RadioButton
+                                android:id="@+id/intensaFisico"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="intensa" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textview50"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:text="Alimentazione" />
+
+                            <RadioButton
+                                android:id="@+id/bilanciata_regolareAlimentazione"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="bilanciata/regolare" />
+
+                            <RadioButton
+                                android:id="@+id/fuori_orarioAlimentazione"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="fuori orario" />
+
+                            <RadioButton
+                                android:id="@+id/disordinataAlimentazione"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="disordinata" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textview52"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:text="Acqua in giornata: litri n°" />
+
+                            <EditText
+                                android:id="@+id/cosaAltroCircolatorio4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:hint="Scrivi qui..." />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textview51"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:text="Caffè n°" />
+
+                            <EditText
+                                android:id="@+id/numeroCaffe"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:hint="Scrivi qui..." />
+
+                            <TextView
+                                android:id="@+id/textview"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1"
+                                android:text="Fumo?" />
+
+                            <RadioButton
+                                android:id="@+id/siFumo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="si" />
+
+                            <RadioButton
+                                android:id="@+id/noFumo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="no" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textview53"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:text="Ambiente di lavoro" />
+
+                            <RadioButton
+                                android:id="@+id/staticoAmbiente"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="statico" />
+
+                            <RadioButton
+                                android:id="@+id/sedentarioAmbiente"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="sedentario" />
+
+                            <RadioButton
+                                android:id="@+id/attivoAmbiente"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="attivo" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,7 +34,6 @@ class MainActivity : AppCompatActivity() {
     private var id_user = ""
     private var readedText = ""
 
-    @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
